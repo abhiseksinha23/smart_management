@@ -1,0 +1,23 @@
+{% extends 'cooperate/base.html' %}
+{% block content %}
+<br><br>
+<div class="container">
+
+  <div class="jumbotron" style="background:lightblue; text-align:center; color:black; margin-top: 5rem;padding-top:5rem;">
+
+    <h2>Please Login: </h2>
+    <h3>(Must be an Authorized Person.)</h3><br>
+    {% if form.errors %}
+        <p>Your username and password didn't match.Please try again!</p>
+    {% endif %}
+
+    <form method="POST" action="{% url 'login' %}">
+    {% csrf_token %}
+        {{form.as_p}}
+
+        <input type="submit" class='btn btn-success btn-large' value="Login" />
+        <input type="hidden" name="next" value="{{ next }}" />
+    </form>
+  </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "cooperate/base.html" %}
+{% block content %}
+<div class="container-fluid" style="text-align:center; padding-top:60px;">
+  <h1><u><b>Quaries Asked</b></u></h1>
+  <div class="container" style="text-align:center;margin:1.2rem auto;">
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      {% if user.is_authenticated %}
+      {% for q in quary %}
+<div class="card col-12 col-sm-6 col-md-3" style=" border:none; align:center; background:#F4F6C1;">
+<div class="card-body" style="padding-buttom:5px; text-align:center;">
+  <ul class="list-group list-group-flush">
+<li class="list-group-item" style="text-align:center;">AUTHOR: <strong> {{ q.author }}</strong></li>
+  <li class="list-group-item">SUBMITED AT: {{ q.created_data }}</li>
+<li class="list-group-item">SUBJECT: {{ q.subject }}</li>
+  <li class="list-group-item"><button class="btn btn-large btn-danger" style="margin:auto;"><a href="{% url 'cooperate:quaries_detail' pk=q.pk %}">DETAILS</a></button></li>
+
+</ul>
+</div>
+</div>
+
+      {% endfor %}
+        {% endif %}
+    </div>
+    </div>
+</div>
+<br><Br>
+{% endblock %}

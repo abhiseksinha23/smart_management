@@ -1,0 +1,15 @@
+{% extends "cooperate/base.html" %}
+{% block content %}
+<div class="container" style="padding:60px;margin:10px auto;">
+  <div class="jumbotron easy">
+    <h1>Headquater:- Jamshedpur, Jharkhand</h1>
+    <h3>Contact No.- 1234567890/123245678</h3>
+    <h3>Email :- asdf@gmail.com</h3>
+
+  </div>
+  <div class="container" style="text-align:center;">
+    <h2>ANY Queries???Please Let us know...</h2>
+    <button class="btn btn-warning btn-large" name="button"><a class="nav-link" href="{% url 'cooperate:quaries_create' %}">ADD Quaries</a></button>
+  </div>
+</div>
+{% endblock %}

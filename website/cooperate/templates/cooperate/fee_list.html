@@ -1,0 +1,33 @@
+{% extends "cooperate/base.html" %}
+{% block content %}
+<div class="container-fluid" style="text-align:center; padding-top:60px;">
+  <h1><u><b>FEE STRUCTURE</b></u></h1>
+  <div class="container" style="text-align:center;margin:1.2rem auto;">
+  {% if user.is_authenticated %}
+  <h3>Add new FEE detials <button class="btn btn-success btn-large"><a href="{% url 'cooperate:fee_create' %}">ADD</a></button></h3>
+  {% endif %}
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      {% for f in fees %}
+<div class="card col-12 col-sm-6 col-md-3" style=" border:none; width:10rem; align:center; background:#F4F6C1;">
+<div class="card-body" style="padding-buttom:5px; text-align:center;">
+  <ul class="list-group list-group-flush">
+<li class="list-group-item" style="text-align:center;"><strong> {{ f.course }}</strong></li>
+<li class="list-group-item">COURSE YEARS: {{ f.years }}</li>
+  <li class="list-group-item">FEE: Rs.{{ f.fees }}</li>
+  <li class="list-group-item">TYPE: {{ f.type }}</li>
+  {% if user.is_authenticated %}
+  <li class="list-group-item" style="text-align:center;"><button class="btn btn-warning"><a href="{% url 'cooperate:fee_update' pk=f.pk %}">UPDATE</a></button>
+  <button class="btn btn-danger"><a href="{% url 'cooperate:fee_delete' pk=f.pk %}">DELETE</a></button></li>
+  {% endif %}
+</ul>
+</div>
+</div>
+
+      {% endfor %}
+    </div>
+    </div>
+</div>
+<br><Br>
+{% endblock %}

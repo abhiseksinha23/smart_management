@@ -1,0 +1,22 @@
+{% extends "cooperate/base.html" %}
+{% block content %}
+<div class="container-fluid" style="text-align:center; padding-top:60px;">
+  <div class="container">
+<img  class="card-img-top" src="{{ rankers.pic.url }}" style=" margin:10px; border-radius:30%; width:16rem; height:12rem;"alt="Card image cap">
+<li class="list-group-item" style="text-align:center; width:28rem; margin:auto"><strong> {{ rankers.name }}</strong></li>
+<li class="list-group-item" style="text-align:center; width:28rem; margin:auto">POSITION: {{ rankers.rank }}</li>
+<li class="list-group-item" style="text-align:center; width:28rem; margin:auto">SUBJECT: {{ rankers.achievement }}</li>
+<li class="list-group-item" style="text-align:center; width:28rem; margin:auto">COLLEGE: {{ rankers.program }}</li>
+{% if user.is_authenticated %}
+<li class="list-group-item" style="text-align:center; width:28rem; margin:auto"><button class="btn btn-warning"><a href="{% url 'cooperate:rankers_update' pk=rankers.pk %}">UPDATE</a></button>
+<button class="btn btn-danger"><a href="{% url 'cooperate:rankers_delete' pk=rankers.pk %}">DELETE</a></button></li>
+{% endif %}
+</div>
+</div>
+
+
+    </div>
+    </div>
+
+<br><Br>
+{% endblock %}

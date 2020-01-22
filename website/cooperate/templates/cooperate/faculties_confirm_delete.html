@@ -1,0 +1,10 @@
+{% extends "cooperate/base.html" %}
+{% block content %}
+<div class="container" style="margin:4rem; padding-top:60px;">
+<form action="" method="post">
+  {% csrf_token %}
+  <h4>Are you sure you want to delete "{{ faculties.name }}"?</h4>
+  <input class='btn btn-danger' type="submit" value="Confirm" />
+</form>
+</div>
+{% endblock %}

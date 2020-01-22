@@ -1,0 +1,35 @@
+{% extends "cooperate/base.html" %}
+{% block content %}
+<div class="container-fluid" style="text-align:center; padding-top:60px;">
+  <h1><u><b>OUR STUDENTS</b></u></h1>
+  <div class="container" style="text-align:center;margin:1.2rem auto;">
+  {% if user.is_authenticated %}
+  <h3>Add New STUDENT <button class="btn btn-success btn-large"><a href="{% url 'cooperate:students_create' %}">ADD</a></button></h3>
+  {% endif %}
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+  {% if user.is_authenticated %}
+      {% for s in student %}
+<div class="card col-12 col-sm-6 col-md-4" style=" border:none; width:6rem; align:center; background:#F4F6C1;">
+<img  class="card-img-top" src="{{ s.pic.url }}" style=" border-radius:30%; width:26rem; height:15rem;"alt="Card image cap">
+<div class="card-body" style="padding-buttom:5px; text-align:center;">
+  <ul class="list-group list-group-flush">
+<li class="list-group-item" style="text-align:center;"><strong> {{ s.name }}</strong></li>
+<li class="list-group-item" >FATHER'S NAME: {{ s.fathername }}</li>
+<li class="list-group-item">PROGRAM: {{ s.program }}</li>
+<li class="list-group-item" >CENTER: {{ s.center }}</li>
+
+  <li class="list-group-item"><button class="btn btn-large btn-danger" style="margin:auto;"><a href="{% url 'cooperate:students_detail' pk=s.pk %}">DETAILS</a></button></li>
+
+</ul>
+</div>
+</div>
+
+      {% endfor %}
+        {% endif %}
+    </div>
+    </div>
+</div>
+<br><Br>
+{% endblock %}

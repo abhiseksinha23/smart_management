@@ -1,0 +1,27 @@
+{% extends "cooperate/base.html" %}
+{% block content %}
+<div class="container-fluid" style="text-align:center; padding-top:60px;">
+  <div class="container">
+<img  class="card-img-top" src="{{ faculties.pic.url }}" style=" margin:10px; border-radius:30%; width:16rem; height:12rem;"alt="Card image cap">
+<li class="list-group-item" style="text-align:center; width:28rem; margin:auto"><strong> {{ faculties.name }}</strong></li>
+<li class="list-group-item" style="text-align:center; width:28rem; margin:auto">POSITION: {{ faculties.position }}</li>
+<li class="list-group-item" style="text-align:center; width:28rem; margin:auto">SUBJECT: {{ faculties.subject }}</li>
+<li class="list-group-item" style="text-align:center; width:28rem; margin:auto">COLLEGE: {{ faculties.collegename }}</li>
+<li class="list-group-item" style="text-align:center; width:28rem; margin:auto">DEGREE: {{ faculties.qualification }}</li>
+{% if user.is_authenticated %}
+<li class="list-group-item" style="text-align:center; width:28rem; margin:auto">SALARY: Rs.{{ faculties.salary }}</li>
+<li class="list-group-item" style="text-align:center; width:28rem; margin:auto">EMAIL: {{ faculties.email }}</li>
+<li class="list-group-item" style="text-align:center; width:28rem; margin:auto">ADDRESS: {{ faculties.address }}</li>
+<li class="list-group-item" style="text-align:center; width:28rem; margin:auto">CONTACT: {{ faculties.contact }}</li>
+<li class="list-group-item" style="text-align:center; width:28rem; margin:auto"><button class="btn btn-warning"><a href="{% url 'cooperate:faculties_update' pk=faculties.pk %}">UPDATE</a></button>
+<button class="btn btn-danger"><a href="{% url 'cooperate:faculties_delete' pk=faculties.pk %}">DELETE</a></button></li>
+{% endif %}
+</div>
+</div>
+
+
+    </div>
+    </div>
+
+<br><Br>
+{% endblock %}

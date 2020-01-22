@@ -1,0 +1,25 @@
+{% extends "cooperate/base.html" %}
+{% block content %}
+<div class="container-fluid" style="text-align:center; padding-top:60px;">
+  <div class="container">
+{% if user.is_authenticated %}
+<img  class="card-img-top" src="{{ students.pic.url }}" style=" margin:10px; border-radius:30%; width:26rem; height:18rem;"alt="Card image cap">
+<li class="list-group-item" style="text-align:center; width:26rem; margin:auto"><strong> {{ students.name }}</strong></li>
+<li class="list-group-item" style="text-align:center; width:26rem; margin:auto">FATHER'S NAME: {{ students.fathername }}</li>
+<li class="list-group-item" style="text-align:center; width:26rem; margin:auto">CONTACT: {{ students.contact }}</li>
+<li class="list-group-item" style="text-align:center; width:26rem; margin:auto">ADDRESS: {{ students.address }}</li>
+<li class="list-group-item" style="text-align:center; width:26rem; margin:auto">EMAIL: {{ students.email }}</li>
+<li class="list-group-item" style="text-align:center; width:26rem; margin:auto">PROGRAM: {{ students.program }}</li>
+<li class="list-group-item" style="text-align:center; width:26rem; margin:auto">JOIN YEAR: {{ students.joinyear }}</li>
+<li class="list-group-item" style="text-align:center; width:26rem; margin:auto">PROGRAM YEAR: {{ students.pyear }}</li>
+<li class="list-group-item" style="text-align:center; width:26rem; margin:auto">FEE: {{ students.fee }}</li>
+<li class="list-group-item" style="text-align:center; width:26rem; margin:auto">CENTER: {{ students.center }}</li>
+<li class="list-group-item" style="text-align:center; width:26rem; margin:auto">FEE'S STATUS: {{ students.feestatus }}</li>
+<li class="list-group-item" style="text-align:center; width:26rem; margin:auto"><button class="btn btn-warning"><a href="{% url 'cooperate:students_update' pk=students.pk %}">UPDATE</a></button>
+<button class="btn btn-danger"><a href="{% url 'cooperate:students_delete' pk=students.pk %}">DELETE</a></button></li>
+{% endif %}
+</div>
+</div>
+
+<br><Br>
+{% endblock %}

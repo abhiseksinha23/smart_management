@@ -1,0 +1,21 @@
+{% extends "cooperate/base.html" %}
+{% block content %}
+<div class="container-fluid" style="text-align:center; margin:10rem auto;">
+  <div class="container">
+<li class="list-group-item" style="text-align:center; width:28rem; margin:auto"><strong> {{ centers.name }}</strong></li>
+<li class="list-group-item" style="text-align:center; width:28rem; margin:auto">PLACE: {{ centers.place }}</li>
+<li class="list-group-item" style="text-align:center; width:28rem; margin:auto">ADDRESS: {{ centers.address }}</li>
+<li class="list-group-item" style="text-align:center; width:28rem; margin:auto">CONTACT: {{ centers.contact }}</li>
+{% if user.is_authenticated %}
+<li class="list-group-item" style="text-align:center; width:28rem; margin:auto"><button class="btn btn-warning"><a href="{% url 'cooperate:centers_update' pk=centers.pk %}">UPDATE</a></button>
+<button class="btn btn-danger"><a href="{% url 'cooperate:centers_delete' pk=centers.pk %}">DELETE</a></button></li>
+{% endif %}
+</div>
+</div>
+
+
+    </div>
+    </div>
+
+<br><Br>
+{% endblock %}

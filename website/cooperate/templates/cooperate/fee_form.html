@@ -1,0 +1,13 @@
+{% extends 'cooperate/base.html' %}
+
+{% block content %}
+<div class="container" style="align:center;text-align:center; margin:0 auto;padding-top:60px;" >
+    <h1 style="text-align:center;font-size:2em;"><u><b>Add/Update FEE</b></u></h1>
+<br>
+    <form method="POST" enctype="multipart/form-data" style="font-size:1em;">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit" class="save btn btn-success"style="text-align:center;font-size:1em;">Save</button>
+    </form>
+</div>
+{% endblock %}

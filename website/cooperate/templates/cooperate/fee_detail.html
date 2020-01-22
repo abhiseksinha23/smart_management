@@ -1,0 +1,21 @@
+{% extends "cooperate/base.html" %}
+{% block content %}
+<div class="container-fluid" style="text-align:center; padding-top:15rem;">
+  <div class="container">
+<li class="list-group-item" style="text-align:center; width:28rem; margin:auto"><strong> {{ fee.course }}</strong></li>
+<li class="list-group-item" style="text-align:center; width:28rem; margin:auto">POSITION: {{ fee.years }}</li>
+<li class="list-group-item" style="text-align:center; width:28rem; margin:auto">SUBJECT: {{ fee.fees }}</li>
+<li class="list-group-item" style="text-align:center; width:28rem; margin:auto">COLLEGE: {{ fee.type }}</li>
+{% if user.is_authenticated %}
+<li class="list-group-item" style="text-align:center; width:28rem; margin:auto"><button class="btn btn-warning"><a href="{% url 'cooperate:fee_update' pk=fee.pk %}">UPDATE</a></button>
+<button class="btn btn-danger"><a href="{% url 'cooperate:fee_delete' pk=fee.pk %}">DELETE</a></button></li>
+{% endif %}
+</div>
+</div>
+
+
+    </div>
+    </div>
+
+<br><Br>
+{% endblock %}

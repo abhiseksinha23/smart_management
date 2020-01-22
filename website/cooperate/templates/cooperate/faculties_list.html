@@ -1,0 +1,33 @@
+{% extends "cooperate/base.html" %}
+{% block content %}
+<div class="container-fluid" style="text-align:center; padding-top:60px;">
+  <h1><u><b>OUR TEAM</b></u></h1>
+  <div class="container" style="text-align:center;margin:1.2rem auto;">
+  {% if user.is_authenticated %}
+  <h3>Add New Members <button class="btn btn-success btn-large"><a href="{% url 'cooperate:faculties_create' %}">ADD</a></button></h3>
+  {% endif %}
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      {% for f in faculty%}
+<div class="card col-12 col-sm-6 col-md-3" style=" border:none; width:10rem; align:center; background:#F4F6C1;">
+<img  class="card-img-top" src="{{ f.pic.url }}" style=" border-radius:30%; width:16rem; height:12rem;"alt="Card image cap">
+<div class="card-body" style="padding-buttom:5px; text-align:left;">
+  <ul class="list-group list-group-flush">
+<li class="list-group-item" style="text-align:center;"><strong> {{ f.name }}</strong></li>
+
+
+<li class="list-group-item">POSITION: {{ f.position }}</li>
+  <li class="list-group-item">SUBJECT: {{ f.subject }}</li>
+  <li class="list-group-item"><button class="btn btn-large btn-danger" style="margin:auto;"><a href="{% url 'cooperate:faculties_detail' pk=f.pk %}">DETAILS</a></button></li>
+
+</ul>
+</div>
+</div>
+
+      {% endfor %}
+    </div>
+    </div>
+</div>
+<br><Br>
+{% endblock %}
